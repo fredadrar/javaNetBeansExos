@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fred
  */
-public class MyFirstServlet extends HttpServlet {
+public class CheckCredentialServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,12 +31,18 @@ public class MyFirstServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String varValue = request.getParameter("test");
-        request.setAttribute("testValue", varValue);
-
         ServletContext context = this.getServletContext();
-        RequestDispatcher reqDispatcher = context.getRequestDispatcher("/WEB-INF/JSP/firstjsp.jsp");
-        reqDispatcher.forward(request, response);
+        String varLogin = request.getParameter("login");
+
+        if ("fred".equals(varLogin)) {
+            request.getSession().setAttribute("savedLogin", varLogin);
+            RequestDispatcher reqDispatcher = context.getRequestDispatcher("/WEB-INF/JSP/accueil.jsp");
+            reqDispatcher.forward(request, response);
+        }
+        else {
+            RequestDispatcher reqDispatcher = context.getRequestDispatcher("/myfirstapp");
+            reqDispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

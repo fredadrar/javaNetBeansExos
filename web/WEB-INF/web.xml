@@ -4,9 +4,25 @@
         <servlet-name>FirstServlet</servlet-name>
         <servlet-class>fr.fred.myfirstapp.controller.MyFirstServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>fr.fred.myfirstapp.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CredentialServlet</servlet-name>
+        <servlet-class>fr.fred.myfirstapp.controller.CheckCredentialServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/mfs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CredentialServlet</servlet-name>
+        <url-pattern>/check-credentials</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fred
  */
-public class MyFirstServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,11 +31,8 @@ public class MyFirstServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String varValue = request.getParameter("test");
-        request.setAttribute("testValue", varValue);
-
         ServletContext context = this.getServletContext();
-        RequestDispatcher reqDispatcher = context.getRequestDispatcher("/WEB-INF/JSP/firstjsp.jsp");
+        RequestDispatcher reqDispatcher = context.getRequestDispatcher("/WEB-INF/JSP/login.jsp");
         reqDispatcher.forward(request, response);
     }
 
